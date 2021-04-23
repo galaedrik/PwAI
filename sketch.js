@@ -32,7 +32,7 @@ function setup() {
   background(0);
   mobilenet = ml5.featureExtractor('MobileNet', modelReady);
   classifier = mobilenet.classification(video, videoReady);
-  classifyDone;
+// classifyDone;
 
 //   doliButton = createButton('Doliprane');
 //   doliButton.mousePressed(function() {
