@@ -6,21 +6,23 @@ let doliButton;
 let nuroButton;
 let trainButton;
 let saveButton;
+var description, resultM;
 
 
 function modelReady() {
   console.log('Model is ready!!!');
-   classifier.load('./model.json', customModelReady);
+   classifier.load('https://cdn.jsdelivr.net/gh/galaedrik/PWaI/model.json', customModelReady);
 }
 
 function customModelReady() {
    console.log('Custom Model is ready!!!');
    label = 'model ready';
-   classifier.classify(gotResults);
+  // classifier.classify(gotResults);
 }
 
 function videoReady() {
   console.log('Video is ready!!!');
+  classifier.classify(gotResults);
 }
 
 function setup() {
@@ -30,6 +32,7 @@ function setup() {
   background(0);
   mobilenet = ml5.featureExtractor('MobileNet', modelReady);
   classifier = mobilenet.classification(video, videoReady);
+  classifyDone;
 
 //   doliButton = createButton('Doliprane');
 //   doliButton.mousePressed(function() {
